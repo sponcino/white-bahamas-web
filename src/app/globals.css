@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Identidad cromática original confirmada de White Bahamas */
+    --wb-blue: #0099ff;
+    --wb-blue-hover: #007acc;
+    --wb-blue-light: #e8f5ff;
+    --wb-cyan: #23f0fb;
+    --wb-charcoal: #2b2925;
+    --wb-black: #0b0f19;
+    --wb-white: #ffffff;
+    --wb-surface: #f8fafc;
+    --wb-surface-hover: #ececec;
+    --wb-border: #e2e8f0;
+    --wb-text-main: #1e293b;
+    --wb-text-muted: #64748b;
+    --wb-accent-gold: #c5a059;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: #1e293b;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: rgba(0, 153, 255, 0.2);
+    color: #0b0f19;
+  }
+}
+
+/* Tipografía de clase editorial */
+.font-editorial {
+  font-family: var(--font-playfair), "PT Serif", Georgia, serif;
+}
+
+.font-sans-ui {
+  font-family: var(--font-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Utilidades de marca */
+.bg-wb-blue {
+  background-color: var(--wb-blue);
+}
+
+.text-wb-blue {
+  color: var(--wb-blue);
+}
+
+.border-wb-blue {
+  border-color: var(--wb-blue);
+}
+
+.bg-wb-charcoal {
+  background-color: var(--wb-charcoal);
+}
+
+.bg-wb-surface {
+  background-color: var(--wb-surface);
+}
+
+/* Micro-animaciones y reveals performantes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s infinite ease-in-out;
+}
+
+/* Respeto estricto a prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Foco accesible para navegación por teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--wb-blue);
+  outline-offset: 2px;
+}
+
+/* Retícula arquitectónica sobria */
+.architectural-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+}
